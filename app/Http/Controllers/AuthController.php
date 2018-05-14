@@ -15,8 +15,23 @@ class AuthController extends Controller
 
         if($validator->fails()) {
             $messageBag = $this->validationMessage($validator->errors());
-            return $this->errorMessage($messageBag, 401);
+            return $this->errorMessage($messageBag, 400);
         }
 
+        $credentials = $req->only(['username', 'password']);
+        
+        if(!($token = auth()->attempt($credentials))) {
+            return $this->errorMessage('Username atau Password salah!', 401);
+        }
+
+        return $this->respondWithToken($token);
+    }
+
+    public function respondWithToken($token) {
+        return $this->dataMessage([
+            'token' => $token,
+            'type' => 'bearer',
+            'expires' => 3600
+        ], 'Sukses');
     }
 }
