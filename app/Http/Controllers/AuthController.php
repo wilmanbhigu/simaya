@@ -17,6 +17,6 @@ class AuthController extends Controller
             $messageBag = $this->validationMessage($validator->errors());
             return $this->errorMessage($messageBag, 401);
         }
-        
+
     }
 }

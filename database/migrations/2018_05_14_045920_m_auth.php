@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MUser extends Migration
+class MAuth extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class MUser extends Migration
      */
     public function up()
     {
-        Schema::create('m_user', function(Blueprint $table) {
+        Schema::create('m_auth', function (Blueprint $table) {
             $table->increments('id');
             $table->string('username')->unique();
             $table->string('password');
-            $table->integer('level')->default(5);
+            $table->integer('level');
             $table->boolean('enabled')->default(true);
             $table->timestamps();
-        });
+        });   
     }
 
     /**
@@ -30,6 +30,6 @@ class MUser extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('m_auth');
     }
 }
