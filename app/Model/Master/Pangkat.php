@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pangkat extends Model
 {
-    protected $table = 'm_pangkat';
+    protected $table = 'm_golongan';
     public $timestamps = false;
 }

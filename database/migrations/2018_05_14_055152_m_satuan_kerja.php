@@ -14,7 +14,7 @@ class MSatuanKerja extends Migration
             $table->string('kode')->unique();
             $table->string('parent_kode')->nullable();
             $table->string('nama');
-            $table->integer('eselon_id')->nullable();
+            $table->integer('eselon_id')->unsigned()->nullable();
         });   
 
         Schema::table('m_satuan_kerja', function(Blueprint $table) {

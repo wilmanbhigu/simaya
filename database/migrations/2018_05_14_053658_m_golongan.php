@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MPangkat extends Migration
+class MGolongan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class MPangkat extends Migration
      */
     public function up()
     {
-        Schema::create('m_pangkat', function (Blueprint $table) {
+        Schema::create('m_golongan', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode')->unique();
             $table->string('nama');
@@ -27,6 +27,6 @@ class MPangkat extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_pangkat');
+        Schema::dropIfExists('m_golongan');
     }
 }

@@ -23,8 +23,8 @@ class MEselon extends Migration
 
         
         Schema::table('m_eselon', function(Blueprint $table) {
-            $table->foreign('pangkat_start_id')->references('id')->on('m_pangkat');
-            $table->foreign('pangkat_end_id')->references('id')->on('m_pangkat');
+            $table->foreign('pangkat_start_id')->references('id')->on('m_golongan');
+            $table->foreign('pangkat_end_id')->references('id')->on('m_golongan');
         });
         
     }
