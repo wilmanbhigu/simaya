@@ -24,6 +24,7 @@ class Controller extends BaseController
             'code' => $code,
             'data' => [],
             'total' => false,
+            'request_time' => microtime(true) - LARAVEL_START,
         ]);
     }
 
@@ -35,6 +36,7 @@ class Controller extends BaseController
             'code' => $code,
             'data' => $data,
             'total' => $total,
+            'request_time' => microtime(true) - LARAVEL_START,
         ]);
     }
 
@@ -46,6 +48,7 @@ class Controller extends BaseController
             'code' => $code,
             'data' => [],
             'total' => false,
+            'request_time' => microtime(true) - LARAVEL_START,
         ]);
     }
     

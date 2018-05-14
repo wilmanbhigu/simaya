@@ -32,6 +32,6 @@ class AuthController extends Controller
             'token' => $token,
             'type' => 'bearer',
             'expires' => 3600
-        ], 'Sukses');
+        ], false, 'Berhasil Login');
     }
 }
