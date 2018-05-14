@@ -26,6 +26,6 @@ class MKecamatan extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('m_kecamatan');
     }
 }

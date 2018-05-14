@@ -13,13 +13,11 @@ class MPangkat extends Migration
      */
     public function up()
     {
-        
         Schema::create('m_pangkat', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode')->unique();
             $table->string('nama');
         });
-        
     }
 
     /**
@@ -29,6 +27,6 @@ class MPangkat extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('m_pangkat');
     }
 }

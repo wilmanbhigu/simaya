@@ -36,6 +36,6 @@ class MEselon extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('m_eselon');
     }
 }
