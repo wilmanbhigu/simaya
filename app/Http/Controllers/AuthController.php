@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use App\Model\Simpeg;
+use App\Model\Pegawai;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -19,12 +22,26 @@ class AuthController extends Controller
         }
 
         $credentials = $req->only(['username', 'password']);
+       
+        $simpeg = new Simpeg();
+        $pegawai = User::where('username', $req->input('username'))->first();
         
-        if(!($token = auth()->attempt($credentials))) {
+        if($token = auth()->attempt($credentials)) {
+            return $this->respondWithToken($token);
+        } else if($pegawai) {
             return $this->errorMessage('Username atau Password salah!', 401);
+        } else {
+            $apiResult = $simpeg->checkUserFromApi($req->input('username'));
+            $token = auth()->attempt($credentials);
+
+            return $token ? $this->respondWithToken($token) : $this->errorMessage('Username atau Password salah!', 401); 
         }
 
-        return $this->respondWithToken($token);
+        // return $this->respondWithToken($token);
+    }
+
+    private function checkFromSimpeg($username) {
+        
     }
 
     public function respondWithToken($token) {
