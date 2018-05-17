@@ -27,6 +27,6 @@ class MKeamananSurat extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('m_keamanan_surat');
     }
 }

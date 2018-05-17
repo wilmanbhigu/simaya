@@ -20,6 +20,7 @@ class MSatuanKerja extends Migration
 
         Schema::table('m_satuan_kerja', function(Blueprint $table) {
             $table->foreign('eselon_kode')->references('kode')->on('m_eselon');
+            $table->foreign('kode')->references('username')->on('m_auth');
         });
     }
 

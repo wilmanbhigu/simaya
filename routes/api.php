@@ -20,3 +20,4 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'Controller@index');
 Route::post('/authentication', 'AuthController@verifyCredentials');
+Route::get('/profil', 'Pegawai\PegawaiController@profil');

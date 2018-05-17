@@ -26,6 +26,6 @@ class MKlasifikasi extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('m_klasifikasi');
     }
 }

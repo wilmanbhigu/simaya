@@ -28,6 +28,6 @@ class Instansi extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('instansi');
     }
 }

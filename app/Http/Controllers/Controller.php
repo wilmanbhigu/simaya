@@ -50,7 +50,7 @@ class Controller extends BaseController
             'data' => [],
             'total' => false,
             'request_time' => microtime(true) - LARAVEL_START,
-        ]);
+        ], $code);
     }
 
     public function dataMessage($data = [], $total = 0, $message = '', $code = 200) {
@@ -62,7 +62,7 @@ class Controller extends BaseController
             'data' => $data,
             'total' => $total,
             'request_time' => microtime(true) - LARAVEL_START,
-        ]);
+        ], $code);
     }
 
     public function errorMessage($message = '', $code = 400) {
@@ -74,7 +74,7 @@ class Controller extends BaseController
             'data' => [],
             'total' => false,
             'request_time' => microtime(true) - LARAVEL_START,
-        ]);
+        ], $code);
     }
     
     public function validationMessage($validator) {

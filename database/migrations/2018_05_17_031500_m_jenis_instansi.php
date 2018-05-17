@@ -26,6 +26,6 @@ class MJenisInstansi extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('m_jenis_instansi');
     }
 }

@@ -25,9 +25,9 @@ class SuratMasukManual extends Migration
             $table->string('nomor_agenda');
 
             $table->text('perihal');
-            $table->integer('instansi_pengirim_id');
-            $table->integer('jabatan_pengirim_id');
-            $table->integer('jenis_instansi_id');
+            $table->integer('instansi_pengirim_id')->unsigned();
+            $table->integer('jabatan_pengirim_id')->unsigned();
+            $table->integer('jenis_instansi_id')->unsigned();
             $table->text('alamat_pengirim');
 
             $table->integer('klasifikasi_id')->unsigned();
@@ -46,6 +46,8 @@ class SuratMasukManual extends Migration
             $table->foreign('instansi_pengirim_id')->references('id')->on('instansi');
             $table->foreign('jabatan_pengirim_id')->references('id')->on('m_jabatan');
             $table->foreign('jenis_instansi_id')->references('id')->on('m_jenis_instansi');
+
+            $table->foreign('klasifikasi_id')->references('id')->on('m_klasifikasi');
         });
     }
 
@@ -56,6 +58,6 @@ class SuratMasukManual extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('surat_masuk_manual');
     }
 }
