@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use App\Http\Middleware\VerifyJWTToken;
 /**
  * @SWG\Swagger(
  *     basePath="/api",
@@ -36,6 +37,10 @@ use Illuminate\Http\Request;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function __construct() {
+        $this->middleware(VerifyJWTToken::class)->except(['verifyCredentials']);
+    }
 
     public function index(Request $req) {
         return $this->successMessage('Welcome to siMAYA API');

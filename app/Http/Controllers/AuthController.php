@@ -40,10 +40,6 @@ class AuthController extends Controller
         // return $this->respondWithToken($token);
     }
 
-    private function checkFromSimpeg($username) {
-        
-    }
-
     public function respondWithToken($token) {
         return $this->dataMessage([
             'token' => $token,

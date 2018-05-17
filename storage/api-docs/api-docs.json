@@ -54,6 +54,152 @@
                     }
                 }
             }
+        },
+        "/master/jabatan": {
+            "get": {
+                "tags": [
+                    "Jabatan"
+                ],
+                "summary": "Daftar Jabatan",
+                "operationId": "getJabatan",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Jabatan"
+                ],
+                "summary": "Buat Jabatan",
+                "operationId": "createJabatan",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Isi Request",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "kode",
+                                "nama"
+                            ],
+                            "properties": {
+                                "kode": {
+                                    "type": "string"
+                                },
+                                "nama": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/jabatan/{jabatanId}": {
+            "get": {
+                "tags": [
+                    "Jabatan"
+                ],
+                "summary": "Detail Jabatan",
+                "operationId": "detailJabatan",
+                "parameters": [
+                    {
+                        "name": "jabatanId",
+                        "in": "path",
+                        "description": "ID Jabatan",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Jabatan"
+                ],
+                "summary": "Update Jabatan",
+                "operationId": "updateJabatan",
+                "parameters": [
+                    {
+                        "name": "jabatanId",
+                        "in": "path",
+                        "description": "ID Jabatan",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Isi Request",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "kode",
+                                "nama"
+                            ],
+                            "properties": {
+                                "kode": {
+                                    "type": "string"
+                                },
+                                "nama": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
         }
     },
     "definitions": {},
