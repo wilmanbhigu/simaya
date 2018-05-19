@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Master;
 use App\Model\Master\Agama;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use JWTAuth;
 
 class AgamaController extends Controller
 {
@@ -32,5 +34,78 @@ class AgamaController extends Controller
         $result = $instance->get();
 
         return $this->dataMessage($result, $total, 'Sukses Mendapatkan Data');
+    }
+
+    public function show(Agama $agama)
+    {
+        return $this->dataMessage($agama, false, 'Sukses Mendapatkan Data');
+    }
+
+    public function destroy(Agama $agama)
+    {
+        $user = JWTAuth::parseToken()->toUser();
+        if($user->level > 2) {
+            return $this->errorMessage('Insufficent Permission', 401);
+        }
+
+        try {
+            $agama->delete();
+
+            return $this->successMessage('Berhasil Menghapus Data');
+        } catch (\Exception $e) {
+            return $this->errorMessage('Internal Server Error: '. $e->getMessage(), 500);
+        }
+    }
+
+    public function store(Request $request)
+    {
+        $user = JWTAuth::parseToken()->toUser();
+        if($user->level > 2) {
+            return $this->errorMessage('Insufficent Permission', 401);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required|unique:m_agama',
+        ]);
+
+        if($validator->fails()) {
+            return $this->errorMessage($this->validationMessage($validator->errors()));
+        }
+
+        try {
+            $create = new Agama;
+            $create->nama = $request->input('nama');
+            $create->save();
+
+            return $this->successMessage('Berhasil Menambahkan Data', 200);
+        } catch (\Exception $e) {
+            return $this->errorMessage('Internal Server Error: '. $e->getMessage(), 500);
+        }
+    }
+
+    public function update(Agama $agama, Request $request)
+    {
+        $user = JWTAuth::parseToken()->toUser();
+        if($user->level > 2) {
+            return $this->errorMessage('Insufficent Permission', 401);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required|unique:m_agama',
+        ]);
+
+        if($validator->fails()) {
+            return $this->errorMessage($this->validationMessage($validator->errors()));
+        }
+
+        try {
+//            $create = new Agama;
+            $agama->nama = $request->input('nama');
+            $agama->save();
+
+            return $this->successMessage('Berhasil Mengubah Data', 200);
+        } catch (\Exception $e) {
+            return $this->errorMessage('Internal Server Error: '. $e->getMessage(), 500);
+        }
     }
 }

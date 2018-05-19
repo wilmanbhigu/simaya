@@ -38,3 +38,25 @@
  *     )
  */
 function index() {}
+
+/**
+ * @SWG\Get(
+ *      path="/master/agama/{agamaId}",
+ *      operationId="detailAgama",
+ *      tags={"Agama"},
+ *      summary="Detail Agama",
+ *      @SWG\Response(
+ *          response=200,
+ *          description="Success"
+ *       ),
+ *       @SWG\Response(response=400, description="Bad Request"),
+ *       @SWG\Parameter(
+ *           in="path",
+ *           name="agamaId",
+ *           description="ID Agama",
+ *           type="number",
+ *           required=true,
+ *       ),
+ *     )
+ */
+function show() {}

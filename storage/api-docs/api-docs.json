@@ -55,6 +55,69 @@
                 }
             }
         },
+        "/master/agama": {
+            "get": {
+                "tags": [
+                    "Agama"
+                ],
+                "summary": "Daftar Agama",
+                "operationId": "getAgama",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/agama/{agamaId}": {
+            "get": {
+                "tags": [
+                    "Agama"
+                ],
+                "summary": "Detail Agama",
+                "operationId": "detailAgama",
+                "parameters": [
+                    {
+                        "name": "agamaId",
+                        "in": "path",
+                        "description": "ID Agama",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
         "/master/jabatan": {
             "get": {
                 "tags": [
@@ -136,6 +199,30 @@
                     "Jabatan"
                 ],
                 "summary": "Detail Jabatan",
+                "operationId": "detailJabatan",
+                "parameters": [
+                    {
+                        "name": "jabatanId",
+                        "in": "path",
+                        "description": "ID Jabatan",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Jabatan"
+                ],
+                "summary": "Delete Jabatan",
                 "operationId": "detailJabatan",
                 "parameters": [
                     {
