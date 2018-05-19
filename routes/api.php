@@ -24,4 +24,5 @@ Route::get('/profil', 'Pegawai\PegawaiController@profil');
 
 Route::prefix('/master')->group(function() {
    Route::apiResource('/jabatan', 'Master\JabatanController');
+   Route::apiResource('/agama', 'Master\AgamaController');
 });
