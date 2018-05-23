@@ -9,6 +9,7 @@ use App\Model\Master\KlasifikasiSurat;
 use App\Model\Pegawai;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\User;
 
 class SuratMasukManual extends Model
 {
@@ -16,6 +17,11 @@ class SuratMasukManual extends Model
 
     protected $table = 'surat_masuk_manual';
 //    protected $dates = ['deleted_at'];
+
+    public function pembuatSurat() 
+    {
+        return $this->hasOne(User::class, 'id', 'creator_id');
+    }
 
     public function instansiPengirim()
     {

@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Model\Instansi;
 
 class Pegawai extends Model
 {
@@ -11,5 +12,10 @@ class Pegawai extends Model
 
     protected $table= 'pegawai';
     protected $dates = ['deleted_at'];
+
     
+    public function instansi() 
+    {
+        return $this->hasOne(Instansi::class, 'id', 'instansi_id');
+    }
 }

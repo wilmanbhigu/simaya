@@ -14,14 +14,25 @@ class GolonganController extends Controller
         $limit = $request->input('limit') ?? 10;
 
         $instance = Golongan::take($limit)
+            ->when(strlen($search) > 0, function($query) use ($search) {
+                $query->where('nama', 'like', "%${search}%");
+            })
         ;
 
         $total = $instance->count();
 
-        $instance->when();
+        $instance->when(is_numeric($page), function($query) use ($page, $limit) {
+            $skip = ($page - 1) * $limit;
+            $query->skip($skip);
+        });
 
         $result = $instance->get();
 
         return $this->dataMessage($result, $total);
+    }
+
+    public function show(Golongan $golongan)
+    {
+        return $this->dataMessage($golongan, false);
     }
 }

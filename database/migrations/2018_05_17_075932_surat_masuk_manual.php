@@ -17,6 +17,8 @@ class SuratMasukManual extends Migration
 
             $table->increments('id');
 
+            $table->integer('creator_id')->unsigned();
+
             $table->date('tanggal_terima');
             $table->date('tanggal_kirim');
             $table->date('tanggal_surat');
@@ -43,6 +45,8 @@ class SuratMasukManual extends Migration
         });
 
         Schema::table('surat_masuk_manual', function(Blueprint $table) {
+            $table->foreign('creator_id')->references('id')->on('m_auth');
+
             $table->foreign('instansi_pengirim_id')->references('id')->on('instansi');
             $table->foreign('jabatan_pengirim_id')->references('id')->on('m_jabatan');
             $table->foreign('jenis_instansi_id')->references('id')->on('m_jenis_instansi');
