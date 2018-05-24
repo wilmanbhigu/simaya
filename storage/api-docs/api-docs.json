@@ -55,6 +55,43 @@
                 }
             }
         },
+        "/instansi": {
+            "get": {
+                "tags": [
+                    "Instansi"
+                ],
+                "summary": "Daftar Instansi",
+                "operationId": "getInstansi",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
         "/master/agama": {
             "get": {
                 "tags": [
@@ -690,6 +727,32 @@
                         "name": "page",
                         "in": "query",
                         "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/instansi/{instansiId}": {
+            "get": {
+                "tags": [
+                    "Instansi"
+                ],
+                "summary": "Detail Instansi",
+                "operationId": "detailInstansi",
+                "parameters": [
+                    {
+                        "name": "instansiId",
+                        "in": "path",
+                        "description": "ID Instansi",
+                        "required": true,
                         "type": "number"
                     }
                 ],

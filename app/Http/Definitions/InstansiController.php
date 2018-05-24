@@ -3,15 +3,15 @@
  * Created by PhpStorm.
  * User: ragasubekti
  * Date: 5/24/18
- * Time: 11:02 AM
+ * Time: 11:30 AM
  */
 
 /**
  * @SWG\Get(
- *      path="/penerima-surat",
- *      operationId="gerPenerimaSurat",
- *      tags={"Penerima Surat"},
- *      summary="Daftar Penerima Surat",
+ *      path="/instansi",
+ *      operationId="getInstansi",
+ *      tags={"Instansi"},
+ *      summary="Daftar Instansi",
  *      @SWG\Response(
  *          response=200,
  *          description="Success"
@@ -38,25 +38,3 @@
  *     )
  */
 public function index() {}
-
-/**
- * @SWG\Get(
- *      path="/instansi/{instansiId}",
- *      operationId="detailInstansi",
- *      tags={"Instansi"},
- *      summary="Detail Instansi",
- *      @SWG\Response(
- *          response=200,
- *          description="Success"
- *       ),
- *       @SWG\Response(response=400, description="Bad Request"),
- *       @SWG\Parameter(
- *           in="path",
- *           name="instansiId",
- *           description="ID Instansi",
- *           type="number",
- *           required=true,
- *       ),
- *     )
- */
-function show() {}
