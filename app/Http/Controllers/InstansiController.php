@@ -70,7 +70,7 @@ class InstansiController extends Controller
         }
 
         try {
-            $create = new Instansi(;
+            $create = new Instansi;
             $create->nama = $request->input('nama');
             $create->save();
 

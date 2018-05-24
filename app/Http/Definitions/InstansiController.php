@@ -37,7 +37,7 @@
  *       ),
  *     )
  */
-public function index() {}
+function index() {}
 
 
 /**

@@ -90,6 +90,131 @@
                         "description": "Bad Request"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "Instansi"
+                ],
+                "summary": "Buat Instasi",
+                "operationId": "createInstansi",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Isi Request",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "nama"
+                            ],
+                            "properties": {
+                                "nama": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/instansi/{instansiId}": {
+            "get": {
+                "tags": [
+                    "Instansi"
+                ],
+                "summary": "Detail Instansi",
+                "operationId": "detailInstansi",
+                "parameters": [
+                    {
+                        "name": "instansiId",
+                        "in": "path",
+                        "description": "ID Instansi",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Instansi"
+                ],
+                "summary": "Delete Instansi",
+                "operationId": "detailInstansi",
+                "parameters": [
+                    {
+                        "name": "instansiId",
+                        "in": "path",
+                        "description": "ID Instansi",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Instansi"
+                ],
+                "summary": "Update Instansi",
+                "operationId": "updateInstansi",
+                "parameters": [
+                    {
+                        "name": "instansiId",
+                        "in": "path",
+                        "description": "ID Instansi",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Isi Request",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "nama"
+                            ],
+                            "properties": {
+                                "nama": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
             }
         },
         "/master/agama": {
@@ -727,32 +852,6 @@
                         "name": "page",
                         "in": "query",
                         "description": "Halaman Data",
-                        "type": "number"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    }
-                }
-            }
-        },
-        "/instansi/{instansiId}": {
-            "get": {
-                "tags": [
-                    "Instansi"
-                ],
-                "summary": "Detail Instansi",
-                "operationId": "detailInstansi",
-                "parameters": [
-                    {
-                        "name": "instansiId",
-                        "in": "path",
-                        "description": "ID Instansi",
-                        "required": true,
                         "type": "number"
                     }
                 ],
