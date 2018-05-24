@@ -26,4 +26,15 @@ Route::prefix('/master')->group(function() {
    Route::apiResource('/jabatan', 'Master\JabatanController');
    Route::apiResource('/agama', 'Master\AgamaController');
    Route::apiResource('/klasifikasi-surat', 'Master\KlasifikasiSuratController');
+   Route::apiResource('/golongan', 'Master\GolonganController');
+   Route::apiResource('/eselon', 'Master\EselonController');
+   Route::apiResource('/golongan-darah', 'Master\GolonganDarahController');
+   Route::apiResource('/jenis-instansi', 'Master\JenisInstansiController');
+   Route::apiResource('/keamanan-surat', 'Master\KeamananSuratController');
+   Route::apiResource('/kecamatan', 'Master\KecamatanController');
+   Route::apiResource('/klasifikasi-surat', 'Master\KlasifikasiSuratController');
+   Route::apiResource('/satuan-kerja', 'Master\SatuanKerjaController');
+   Route::apiResource('/status-kepegawaian', 'Master\StatusKepegawaian');
 });
+
+Route::apiResource('/surat-masuk-manual', 'SuratMasuk\SuratMasukManualController');
