@@ -38,3 +38,85 @@
  *     )
  */
 public function index() {}
+
+
+/**
+ * @SWG\Post(
+ *      path="/instansi",
+ *      operationId="createInstansi",
+ *      tags={"Instansi"},
+ *      summary="Buat Instasi",
+ *      @SWG\Response(
+ *          response=200,
+ *          description="Success"
+ *       ),
+ *       @SWG\Response(response=400, description="Bad Request"),
+ *       @SWG\Parameter(
+ *           in="body",
+ *           name="body",
+ *           description="Isi Request",
+ *           required=true,
+ *           @SWG\Schema(
+ *               type="object",
+ *               @SWG\Property(property="nama", type="string"),
+ *               required={"nama"}
+ *           )
+ *       ),
+ *     )
+ */
+function store() {}
+
+/**
+ * @SWG\Patch(
+ *      path="/instansi/{instansiId}",
+ *      operationId="updateInstansi",
+ *      tags={"Instansi"},
+ *      summary="Update Instansi",
+ *      @SWG\Response(
+ *          response=200,
+ *          description="Success"
+ *       ),
+ *       @SWG\Response(response=400, description="Bad Request"),
+ *       @SWG\Parameter(
+ *           in="path",
+ *           name="instansiId",
+ *           description="ID Instansi",
+ *           type="number",
+ *           required=true,
+ *       ),
+ *       @SWG\Parameter(
+ *           in="body",
+ *           name="body",
+ *           description="Isi Request",
+ *           required=true,
+ *           @SWG\Schema(
+ *               type="object",
+ *               @SWG\Property(property="nama", type="string"),
+ *               required={"nama"}
+ *           )
+ *       ),
+ *     )
+ */
+function update() {}
+
+/**
+ * @SWG\Delete(
+ *      path="/instansi/{instansiId}",
+ *      operationId="detailInstansi",
+ *      tags={"Instansi"},
+ *      summary="Delete Instansi",
+ *      @SWG\Response(
+ *          response=200,
+ *          description="Success"
+ *       ),
+ *       @SWG\Response(response=400, description="Bad Request"),
+ *       @SWG\Parameter(
+ *           in="path",
+ *           name="instansiId",
+ *           description="ID Instansi",
+ *           type="number",
+ *           required=true,
+ *       ),
+ *     )
+ */
+function destroy() {}
