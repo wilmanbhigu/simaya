@@ -16,7 +16,6 @@ class SuratMasukManual extends Model
 //    use SoftDeletes;
 
     protected $table = 'surat_masuk_manual';
-//    protected $dates = ['deleted_at'];
 
     public function pembuatSurat() 
     {
