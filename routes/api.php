@@ -38,3 +38,4 @@ Route::prefix('/master')->group(function() {
 });
 
 Route::apiResource('/surat-masuk-manual', 'SuratMasuk\SuratMasukManualController');
+Route::apiResource('/penerima-surat', 'SuratMasuk\SuratMasukManualController');

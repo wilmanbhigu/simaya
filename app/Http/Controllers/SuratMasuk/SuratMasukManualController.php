@@ -21,16 +21,28 @@ class SuratMasukManualController extends Controller
             /**
              * When the user is NOT super admin
              */
-            ->when(!in_array($user->level, [0,1]), function($query) use ($user) {
-                $query->when($user->level == 2, function($q) use ($user){
-                    // based on what?
-                });
-            })
-            ->when(is_number($page) && $page > 1, function($query) use ($page, $limit) {
-                $skip = ($page - 1) * $limit;
-                $query->skip($skip);
-            })
+//            ->when(!in_array($user->level, [0,1]), function($query) use ($user) {
+//                $query->when($user->level == 2, function($q) use ($user){
+//                    // based on what?
+//                });
+//            })
         ;
+
+        $total = $instance->count();
+
+        $instance->when(is_number($page) && $page > 1, function($query) use ($page, $limit) {
+            $skip = ($page - 1) * $limit;
+            $query->skip($skip);
+        });
+
+        $result = $instance->get();
+
+        return $this->dataMessage($result, $total, 'Berhasil Mendapatkan Data');
+    }
+
+    public function show(SuratMasukManual $suratMasukManual)
+    {
+        return $this->dataMessage($suratMasukManual, false, 'Berhasil Mendapatkan Detail Surat');
     }
 
     public function store(Request $request)

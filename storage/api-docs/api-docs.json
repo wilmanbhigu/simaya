@@ -118,6 +118,132 @@
                 }
             }
         },
+        "/master/eselon": {
+            "get": {
+                "tags": [
+                    "Eselon"
+                ],
+                "summary": "Daftar Eselon",
+                "operationId": "getEselon",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/eselon/{eselonId}": {
+            "get": {
+                "tags": [
+                    "Eselon"
+                ],
+                "summary": "Detail Eselon",
+                "operationId": "detailEselon",
+                "parameters": [
+                    {
+                        "name": "eselonId",
+                        "in": "path",
+                        "description": "ID Eselon",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/golongan": {
+            "get": {
+                "tags": [
+                    "Golongan"
+                ],
+                "summary": "Daftar Golongan",
+                "operationId": "getGolongan",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/golongan/{golonganId}": {
+            "get": {
+                "tags": [
+                    "Golongan"
+                ],
+                "summary": "Detail Golongan",
+                "operationId": "detailGolongan",
+                "parameters": [
+                    {
+                        "name": "golonganId",
+                        "in": "path",
+                        "description": "ID Golongan",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
         "/master/jabatan": {
             "get": {
                 "tags": [
@@ -276,6 +402,440 @@
                             },
                             "type": "object"
                         }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/jenis-instansi": {
+            "get": {
+                "tags": [
+                    "Jenis Instansi"
+                ],
+                "summary": "Daftar Jenis Instansi",
+                "operationId": "getJenisInstansi",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/jenis-instansi/{jenisInstansiId}": {
+            "get": {
+                "tags": [
+                    "Jenis Instansi"
+                ],
+                "summary": "Detail Jenis Instansi",
+                "operationId": "detailJenisInstansi",
+                "parameters": [
+                    {
+                        "name": "jenisInstansiId",
+                        "in": "path",
+                        "description": "ID Jenis Instansi",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/keamanan-surat": {
+            "get": {
+                "tags": [
+                    "Keamanan Surat"
+                ],
+                "summary": "Daftar Keamanan Surat",
+                "operationId": "getKeamananSurat",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/keamanan-surat/{keamananSuratId}": {
+            "get": {
+                "tags": [
+                    "Keamanan Surat"
+                ],
+                "summary": "Detail Keamanan Surat",
+                "operationId": "detailKeamananSurat",
+                "parameters": [
+                    {
+                        "name": "keamananSuratId",
+                        "in": "path",
+                        "description": "ID Keamanan Surat",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/kecamatan": {
+            "get": {
+                "tags": [
+                    "Kecamatan"
+                ],
+                "summary": "Daftar Kecamatan",
+                "operationId": "getKecamatan",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/kecamatan/{kecamatanId}": {
+            "get": {
+                "tags": [
+                    "Kecamatan"
+                ],
+                "summary": "Detail Kecamatan",
+                "operationId": "detailKecamatan",
+                "parameters": [
+                    {
+                        "name": "kecamatanId",
+                        "in": "path",
+                        "description": "ID Kecamatan",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/klasifikasi-surat": {
+            "get": {
+                "tags": [
+                    "Klasifikasi Surat"
+                ],
+                "summary": "Daftar Klasifikasi Surat",
+                "operationId": "getKlasifikasiSurat",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/master/klasifikasi-surat/{klasifikasiSuratId}": {
+            "get": {
+                "tags": [
+                    "Klasifikasi Surat"
+                ],
+                "summary": "Detail Klasifikasi Surat",
+                "operationId": "detailKeamananSurat",
+                "parameters": [
+                    {
+                        "name": "klasifikasiSuratId",
+                        "in": "path",
+                        "description": "ID klasifikasi Surat",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/penerima-surat": {
+            "get": {
+                "tags": [
+                    "Penerima Surat"
+                ],
+                "summary": "Daftar Penerima Surat",
+                "operationId": "gerPenerimaSurat",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/surat-masuk-manual": {
+            "get": {
+                "tags": [
+                    "!!WIP!! Surat Masuk Manual"
+                ],
+                "summary": "Daftar Surat Masuk Manual",
+                "operationId": "getSuratMasukManual",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Data",
+                        "type": "number"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Data Berdasarkan Nama",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Halaman Data",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Surat Masuk Manual"
+                ],
+                "summary": "Buat Jabatan",
+                "operationId": "createSuratMasukManual",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Isi Request",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "penerima_surat"
+                            ],
+                            "properties": {
+                                "tanggal_terima": {
+                                    "type": "string"
+                                },
+                                "tanggal_kirim": {
+                                    "type": "string"
+                                },
+                                "tanggal_surat": {
+                                    "type": "string"
+                                },
+                                "nomor_surat": {
+                                    "type": "string"
+                                },
+                                "nomor_agenda": {
+                                    "type": "string"
+                                },
+                                "perihal": {
+                                    "type": "string"
+                                },
+                                "instansi_pengirim": {
+                                    "type": "string"
+                                },
+                                "jabatan_pengirim": {
+                                    "type": "string"
+                                },
+                                "jenis_instansi": {
+                                    "type": "string"
+                                },
+                                "alamat_pengirim": {
+                                    "type": "string"
+                                },
+                                "klasifikasi": {
+                                    "type": "string"
+                                },
+                                "keamanan_surat": {
+                                    "type": "string"
+                                },
+                                "penerima_surat": {
+                                    "type": "string"
+                                },
+                                "tembusan_surat": {
+                                    "type": "string"
+                                },
+                                "ringkasan_surat": {
+                                    "type": "string"
+                                },
+                                "isi_surat": {
+                                    "type": "string"
+                                },
+                                "file_surat": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/surat-masuk-manual/{suratId}": {
+            "get": {
+                "tags": [
+                    "!!WIP!! Surat Masuk Manual"
+                ],
+                "summary": "Detail Surat Manual",
+                "operationId": "detailSuratMasukManual",
+                "parameters": [
+                    {
+                        "name": "suratId",
+                        "in": "path",
+                        "description": "ID Surat",
+                        "required": true,
+                        "type": "number"
                     }
                 ],
                 "responses": {
