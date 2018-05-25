@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Master;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Master\GolonganDarah;
+use Illuminate\Support\Facades\Validator;
 
 class GolonganDarahController extends Controller
 {
@@ -35,5 +36,24 @@ class GolonganDarahController extends Controller
     public function show(GolonganDarah $golonganDarah)
     {
         return $this->dataMessage($golonganDarah, false);
+    }
+
+    public function store(Request $request) 
+    {
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+        ]);
+
+        if($validator->fails()) {
+            return $this->errorMessage($this->validationMessage($validator->errors()));
+        }
+
+        try {
+            $create = new GolonganDarah;
+            $create->nama =$request->input('nama');
+            $create->save();
+        } catch (\Exception $e) {
+            return $this->errorMessage('Internal Server Error: '. $e->getMessage(), 500);
+        }
     }
 }

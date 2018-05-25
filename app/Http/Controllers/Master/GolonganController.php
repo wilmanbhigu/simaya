@@ -35,4 +35,32 @@ class GolonganController extends Controller
     {
         return $this->dataMessage($golongan, false);
     }
+
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'kode' => 'required',
+            'nama' => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return $this->errorMessage($this->validationMessage($validator->errors()));
+        }
+
+        try {
+            $create = new Golongan;
+            $create->nama = $request->input('nama');
+            $create->kode = $request->input('kode');
+            $create->save();
+
+            return $this->successMessage('Berhasil Menambahkan Golongan');
+        } catch (\Exception $e) {
+            return $this->errorMessage('Internal Server Error: '.$e->getMessage(), 500);
+        }
+    }
+
+    public function update(Golongan $golongan, Request $request) 
+    {
+        
+    }
 }
